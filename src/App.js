@@ -1,13 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './App.css';
 
+// function Ooo() {
+//   const [file, setFile] = useState();
+  
+//   function handleChange(e) {
+//       console.log(e.target.files);
+//       setFile(URL.createObjectURL(e.target.files[0]));
+//   }
+
+//   return (
+//       <div className="App">
+//           <h2>Add Image:</h2>
+//           <input type="file" onChange={handleChange} />
+//           <img src={file} />
+//       </div>
+//   );
+// }
+
 class App extends Component {
+  
 constructor(props) {
     super(props);
     this.state = {
       posts: []
     }
   }
+  
 
   componentDidMount() {
     const url = "https://jsonplaceholder.typicode.com/posts";
@@ -21,18 +40,25 @@ render() {
     return (
       <div className="container">
         <div class="jumbotron">
-          <h1 class="display-4">Blog posts</h1>
+          <h1 class="display-4">Emotion Detector</h1>
         </div>
         {posts.map((post) => (
-          <div className="card" key={post.id}>
-            <div className="card-header">
-              #{post.id} {post.title}
-            </div>
-            <div className="card-body">
-              <p className="card-text">{post.body}</p>
-            </div>
-          </div>
-        ))}
+           <div className="card" key={post.id}>
+             <div className="card-header">
+               #{post.id} {post.title}
+             </div>
+             <div className="card-body">
+               <p className="card-text">{post.body}</p>
+             </div>
+           </div>
+         ))}
+        {/* <div className="App">
+          <h2>Add Image:</h2>
+          <input type="file" onChange={handleChange} />
+          <img src={file} />
+        </div> */}
+        
+
       </div>
     );
   }
